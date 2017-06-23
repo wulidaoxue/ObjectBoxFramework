@@ -104,7 +104,7 @@ class OBElementI(base.OBElement):
 
 class OBContainerI(base.OBContainer, OBElementI):
     def __init__(self, name=''):
-        apply(OBElementI.__init__,(self,),{})
+        OBElementI.__init__(self)
         self._name = name
         self._children = []
         self._type = 'OBContainer'
@@ -152,14 +152,14 @@ class OBContainerI(base.OBContainer, OBElementI):
         # resultStr = ''
         # for key in self._objectFullNamedReferences.keys():
         #     resultStr += str(self._objectFullNamedReferences[key]) + '\n'
-        resultStr = apply(OBContainerI.__str__,(self,),{})
+        resultStr = OBContainerI.__str__(self)
         return resultStr
 
 
 
 class OBCenterI(base.OBCenter, OBContainerI):
     def __init__(self):
-        apply(OBContainerI.__init__,(self,),{})
+        OBContainerI.__init__(self,{})
         self._objectUuidReferences = weakref.WeakValueDictionary()
         self._root = None
         self._name = 'OBCenter'
@@ -185,15 +185,17 @@ class OBCenterI(base.OBCenter, OBContainerI):
 
 class OBPythonRunnerI(base.OBPythonRunner, OBElementI):
     def __init__(self,name=''):
-        apply(OBElementI.__init__,(self,),{})
+        OBElementI.__init__(self)
         self._name = name
         self._type = 'OBPythonRunner'
 
     def __str__(self):
-        return apply(OBElementI.__str__, (self,))
+        return OBElementI.__str__(self)
 
     def runPyFile(self, pyFilePath, current=None):
-        execfile(pyFilePath)
+        exec(open(pyFilePath).read())
+        #exec(open("./filename").read())
+        #execfile(pyFilePath)
 
     def getCwd(self, current=None):
         import os

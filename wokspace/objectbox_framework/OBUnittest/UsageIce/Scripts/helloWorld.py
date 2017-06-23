@@ -1,10 +1,12 @@
-print "helloWorld"
-
+import logging
+obLogger = logging.getLogger('ObjectBox.Client')
 def fun1():
-    print 'dasfa'
+    global obLogger
+    obLogger.info("hello")
 
 def fun2():
-    print "dadfaf"
+    global obLogger
+    obLogger.info("hello")
 
 fun1()
 fun2()

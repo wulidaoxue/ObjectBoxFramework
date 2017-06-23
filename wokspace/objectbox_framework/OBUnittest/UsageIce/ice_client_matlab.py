@@ -11,7 +11,7 @@ class Client(Ice.Application):
     def run(self, args):
         obCenter = objectbox.base.OBCenterPrx.checkedCast(self.communicator().propertyToProxy("RootElement.Proxy"))
         if not obCenter:
-            print self.appName()+":invalid proxy"
+            #print self.appName()+":invalid proxy"
             return 1
 
         matlabPrx = obCenter.getOBElementByName('Matlab')

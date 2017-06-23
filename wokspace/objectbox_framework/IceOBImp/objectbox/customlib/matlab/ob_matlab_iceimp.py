@@ -8,7 +8,7 @@ import IceOBUtil.servantUtil as svtutil
 
 class OBMatlabI(matlab.OBMatlab, OBElementI):
     def __init__(self, name=''):
-        apply(OBElementI.__init__,(self,),{})
+        OBElementI.__init__(self)
         self._name = name
         self._type = 'OBMatlab'
         self.version = "Matlab.Application.7.13"
@@ -16,7 +16,7 @@ class OBMatlabI(matlab.OBMatlab, OBElementI):
         self._comObj = None
 
     def __str__(self):
-        return apply(OBElementI.__str__, (self,))
+        return OBElementI.__str__(self)
 
     def open(self, current=None):
         pythoncom.CoInitialize()
