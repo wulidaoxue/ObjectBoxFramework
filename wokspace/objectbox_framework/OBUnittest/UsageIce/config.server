@@ -1,0 +1,11 @@
+#
+# The server creates one single object adapter with the name
+# "Server". The following line sets the endpoints for this
+# adapter.
+#
+Server.Endpoints=tcp -h localhost -p 11111:ws -h localhost -p 10002
+
+#
+# Warn about connection exceptions
+#
+Ice.Warn.Connections=1

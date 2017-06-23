@@ -1,0 +1,1 @@
+D:\Python\Python27\Scripts\slice2py -I. OBBase.ice OBCustomLib_Matlab.ice TAEProjectManager.ice --output-dir ../IceOB

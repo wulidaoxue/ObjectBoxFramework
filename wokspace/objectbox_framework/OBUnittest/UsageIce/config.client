@@ -1,0 +1,3 @@
+RootElement.Proxy=OBElement/OBCenter:tcp -h localhost -p 11111
+Client.Endpoints=default
+Ice.Warn.Connections=1
